@@ -1,0 +1,20 @@
+.sidebar-nav ul .sidebar-item .sidebar-link {
+  opacity: 0.9;
+}
+.sidebar-nav ul .sidebar-item .sidebar-link.active,
+.sidebar-nav ul .sidebar-item .sidebar-link:hover {
+  opacity: 1;
+  color: #000000;
+}
+.sidebar-item {
+  cursor: pointer;
+}
+.sidebar-nav ul .sidebar-item .first-level .sidebar-item .sidebar-link {
+  background: #f7f7f7;
+}
+.user-profile .user-content,
+.user-profile .user-name,
+.user-profile .user-email {
+  white-space: normal;
+  text-overflow: unset;
+}

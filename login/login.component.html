@@ -1,0 +1,109 @@
+<div class="kt-grid kt-grid--ver kt-grid--root kt-page">
+  <div class="kt-grid kt-grid--hor kt-grid--root  kt-login kt-login--v1">
+    <div class="kt-grid__item kt-grid__item--fluid kt-grid kt-grid--desktop kt-grid--ver-desktop kt-grid--hor-tablet-and-mobile">
+
+      <div class="kt-grid__item kt-grid__item--order-tablet-and-mobile-2 kt-grid kt-grid--hor kt-login__aside" style="background-image: url(./assets/core/img/bg-4.jpg);">
+        <div class="kt-grid__item">
+          <a class="kt-login__logo">
+            <img src="./assets/core/img/SolvEdge-Logo.png" style="width: 175px;">
+          </a>
+        </div>
+        <div class="kt-grid__item kt-grid__item--fluid kt-grid kt-grid--ver">
+          <div class="kt-grid__item kt-grid__item--middle">
+            <h3 class="kt-login__title">Welcome to Digital-CCP!</h3>
+            <h4 class="kt-login__subtitle">You can enable your web-to-print solutions and allow distributed users to
+              produce professionally branded, yet customized and personalized documents. Retain complete corporate
+              marketing brand control–significantly reducing design and production costs, shortening turnaround times.</h4>
+            <img class="mr-3" style="height: 63px;" src="./assets/core/img/appstore.png" alt="">
+            <img class="store" src="./assets/core/img/playstore.png" alt="">
+          </div>
+        </div>
+        <div class="kt-grid__item">
+          <div class="kt-login__info">
+            <div class="kt-login__copyright">
+              © 2020  <a href="https://solvedge.com/" target="_blank">SolvEdge</a> Inc
+              <!-- | All Rights Reserved -->
+            </div>
+            <div class="kt-login__menu">
+              <a class="kt-link">Privacy</a>
+              <a class="kt-link">Legal</a>
+              <a class="kt-link">Contact</a>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="kt-grid__item kt-grid__item--fluid  kt-grid__item--order-tablet-and-mobile-1  kt-login__wrapper">
+        <div class="kt-login__head">
+          <span class="kt-login__signup-label">Don't have an account yet?</span>&nbsp;&nbsp;
+          <a class="kt-link kt-login__signup-link">Sign Up!</a>
+        </div>
+
+        <div class="kt-login__body" *ngIf="!resetPWD">
+
+          <div class="kt-login__form">
+            <div class="kt-login__title">
+              <h3>Sign In</h3>
+            </div>
+
+            <form class="kt-form" *ngIf="loginform">
+              <div class="form-group">
+                <input class="form-control" type="text" id="username" autocomplete="off" placeholder="Username" pattern="^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$"
+                  required #username="ngModel" [(ngModel)]="userName" [ngModelOptions]="{standalone: true}">
+                <!-- <div class="invalid-feedback">Please enter your username or email</div> -->
+                <span *ngIf="username.touched && username.invalid" class="error">
+                  Please enter the email ! </span>
+                <span style="display: block" class="error" [hidden]="!username.hasError('pattern')">Email format should
+                  be <small><b>user@dccpedge.com</b> </small>
+                </span>
+              </div>
+              <div class="form-group">
+                <input type="password" id="password" class="form-control input-password" required placeholder="Password"
+                  [ngModelOptions]="{standalone: true}" [(ngModel)]="password" #pwd="ngModel">
+                <i class="fa fa-eye-slash open-close-eye" id="eyemask" (click)="eyemask()"></i>
+                <span *ngIf="pwd.touched && pwd.invalid" class="error">
+                  Please enter the password !
+                </span>
+              </div>
+              <div class="form-group" style="text-align: center;">
+                <label *ngIf=" error_msg" class="error">{{errorMsg}}</label>
+              </div>
+              <div class="kt-login__actions">
+                <a class="kt-link kt-login__link-forgot" (click)="resetpwd('reset')">
+                  Forgot Password ?
+                </a>
+                <button class="btn btn-primary btn-elevate kt-login__btn-primary" (click)="btnLogin()" type="submit">Sign
+                  In</button>
+              </div>
+            </form>
+          </div>
+
+        </div>
+
+        <div class="kt-login__body" *ngIf="resetPWD">
+
+          <div class="kt-login__form">
+            <div class="kt-login__title">
+              <h3>Reset Password</h3>
+            </div>
+
+            <form class="kt-form">
+              <div class="form-group">
+                <input class="form-control" type="text" placeholder="Enter Email Address" name="EmailAddress"
+                  autocomplete="off">
+              </div>
+
+              <div class="kt-login__actions">
+                <a class="kt-link kt-login__link-forgot" (click)="resetpwd('login')">
+                  Back to Login
+                </a>
+                <button class="btn btn-primary btn-elevate kt-login__btn-primary">Submit</button>
+              </div>
+            </form>
+          </div>
+
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
